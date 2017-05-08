@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  downstream:
+    image: nginx:alpine
+    ports:
+      - 8282:80
+    network_mode: bridge
+
+  proxy:
+    build: .
+    ports:
+      - 8181:80
+    volumes:
+      - ./bootstrap.sh:/usr/local/openresty/bootstrap.sh
+    environment:
+      - OID_SESSION_SECRET=623q4hR325t36VsCD3g567922IC0073T
+      - OID_SESSION_CHECK_SSI=off
+      - OID_SESSION_NAME=oidc_auth
+
+      - OID_REDIRECT_PATH=/redirect_uri
+      - OID_DISCOVERY=http://172.16.10.129:8080/auth/realms/master/.well-known/openid-configuration
+      - OID_CLIENT_ID=proxy
+      - OID_CLIENT_SECRET=6b9eba1a-acfc-4707-bc12-9c6f164633df
+
+      - PROXY_HOST=172.16.10.129
+      - PROXY_PORT=8282
+      - PROXY_PROTOCOL=http
+    network_mode: bridge
+
+  keycloak:
+    image: jboss/keycloak
+    ports:
+      - 8080:8080
+    environment:
+    - KEYCLOAK_USER=admin
+    - KEYCLOAK_PASSWORD=admin
+    network_mode: bridge
