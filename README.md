@@ -10,7 +10,7 @@ This is Image used Nginx for proxying request and OpenResty with the
 
 ## Supported tags and respective Dockerfile links
 
-* [`latest`, `v1.1.0` (*Dockerfile*)](https://github.com/evry/docker-oidc-proxy/blob/master/Dockerfile)
+* [`latest`, `v1.1.1` (*Dockerfile*)](https://github.com/evry/docker-oidc-proxy/blob/master/Dockerfile)
 
 ## How to use this image
 
