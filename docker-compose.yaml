@@ -7,10 +7,16 @@ services:
       - 8282:80
     network_mode: bridge
 
+  echo:
+    image: gcr.io/google_containers/echoserver:1.8
+    ports:
+      - 8383:8080
+    network_mode: bridge
+
   proxy:
     build: .
     ports:
-      - 8181:80
+      - 80:80
     volumes:
       - ./bootstrap.sh:/usr/local/openresty/bootstrap.sh
     environment:
@@ -19,12 +25,12 @@ services:
       - OID_SESSION_NAME=oidc_auth
 
       - OID_REDIRECT_PATH=/redirect_uri
-      - OID_DISCOVERY=http://172.16.10.129:8080/auth/realms/master/.well-known/openid-configuration
+      - OID_DISCOVERY=http://192.168.99.100:8080/auth/realms/master/.well-known/openid-configuration
       - OID_CLIENT_ID=proxy
-      - OID_CLIENT_SECRET=6b9eba1a-acfc-4707-bc12-9c6f164633df
+      - OID_CLIENT_SECRET=dee59d02-b1a9-455a-bd3c-38d2e060bf0f
 
-      - PROXY_HOST=172.16.10.129
-      - PROXY_PORT=8282
+      - PROXY_HOST=192.168.99.100
+      - PROXY_PORT=8383
       - PROXY_PROTOCOL=http
     network_mode: bridge
 
