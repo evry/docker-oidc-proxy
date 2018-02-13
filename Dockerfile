@@ -1,11 +1,11 @@
-FROM openresty/openresty:1.11.2.3-alpine
+FROM openresty/openresty:1.11.2.5-alpine
 MAINTAINER Hans Kristian Flaatten <hans.flaatten@evry.com>
 
 ENV \
- SESSION_VERSION=2.15 \
- HTTP_VERSION=0.10 \
- OPENIDC_VERSION=1.3.1 \
- JWT_VERSION=0.1.10
+ SESSION_VERSION=2.19 \
+ HTTP_VERSION=0.12 \
+ OPENIDC_VERSION=1.5.3 \
+ JWT_VERSION=0.1.11
 
 RUN \
  apk update && apk upgrade && apk add curl && \

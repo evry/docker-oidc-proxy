@@ -9,7 +9,10 @@ local opts = {
 }
 
 -- call authenticate for OpenID Connect user authentication
-local res, err = require("resty.openidc").authenticate(opts)
+local res, err, _target, session = require("resty.openidc").authenticate(opts)
+
+ngx.log(ngx.DEBUG, tostring(res))
+ngx.log(ngx.DEBUG, tostring(err))
 
 if err then
     ngx.status = 500
@@ -18,3 +21,7 @@ if err then
     ngx.say("There was an error while logging in: " .. err)
     ngx.exit(ngx.HTTP_INTERNAL_SERVER_ERROR)
 end
+
+ngx.log(ngx.DEBUG, "Authentication successful, setting Auth header...")
+ngx.req.set_header("Authorization", "Bearer "..session.data.enc_id_token)
+ngx.log(ngx.DEBUG, "Authentication successful, proxy passing...")
