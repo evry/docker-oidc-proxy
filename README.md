@@ -52,10 +52,11 @@ This Docker image is licensed under the [MIT License](https://github.com/evry/do
 Software contained in this image is licensed under the following:
 
 * docker-openresty: [BSD 2-clause "Simplified" License](https://github.com/openresty/docker-openresty/blob/master/COPYRIGHT)
-* lua-resty-http: [BSD 2-clause "Simplified" License](hhttps://github.com/openresty/docker-open://github.com/openresty/docker-openrttps://github.com/bungle/lua-resty-http/blob/master/LICENSE)
-* lua-resty-jwt: [Apache License 2.0](https://github.com/pingidentity/lua-resty-jwt/blob/master/LICENSE.txt)
+* lua-resty-http: [BSD 2-clause "Simplified" License](https://github.com/pintsized/lua-resty-http/blob/master/LICENSE)
+* lua-resty-jwt: [Apache License 2.0](https://github.com/cdbattags/lua-resty-jwt/blob/master/LICENSE.txt)
 * lua-resty-openidc: [Apache License 2.0](https://github.com/pingidentity/lua-resty-openidc/blob/master/LICENSE.txt)
-* lua-resty-session: [BSD 2-clause "Simplified" License](hhttps://github.com/openresty/docker-open://github.com/openresty/docker-openrttps://github.com/bungle/lua-resty-session/blob/master/LICENSE)
+* lua-resty-session: [BSD 2-clause "Simplified" License](https://github.com/bungle/lua-resty-session/blob/master/LICENSE)
+* lua-resty-hmac: [BSD 2-clause "Simplified" License](https://github.com/jkeys089/lua-resty-hmac/#copyright-and-license)
 
 ## Supported Docker versions
 
