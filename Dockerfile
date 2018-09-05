@@ -1,4 +1,4 @@
-FROM openresty/openresty:1.11.2.5-alpine
+FROM openresty/openresty:1.13.6.2-alpine
 MAINTAINER Hans Kristian Flaatten <hans.flaatten@evry.com>
 
 ENV \
