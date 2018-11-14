@@ -33,6 +33,8 @@ environment variables is used in this image:
 * `PROXY_PORT`: Port of the service to proxy
 * `PROXY_PROTOCOL`: Protofol to the service to proxy (`http` or `https`)
 
+* `ADD_HOST_HEADER`: pass the proxy host header downstream (`true` or `false`)
+
 ```
 docker run \
   -e OID_DISCOVERY=https://my-auth-server/auth \
