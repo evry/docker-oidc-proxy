@@ -1,8 +1,24 @@
+if os.getenv("OID_CLIENT_SECRET_FILE") then
+    filename = os.getenv("OID_CLIENT_SECRET_FILE")
+    local f = io.open(filename, "rb")
+    if not f then
+        ngx.status = 500
+        ngx.header.content_type = 'text/html';
+
+        ngx.say("Could not find filename for OID_CLIENT_SECRET_FILE: " .. filename)
+        ngx.exit(ngx.HTTP_INTERNAL_SERVER_ERROR)
+    end
+
+    oid_secret = f.read(f)
+else
+    oid_secret = os.getenv("OID_CLIENT_SECRET")
+end
+
 local opts = {
     redirect_uri_path = os.getenv("OID_REDIRECT_PATH") or "/redirect_uri",
     discovery = os.getenv("OID_DISCOVERY"),
     client_id = os.getenv("OID_CLIENT_ID"),
-    client_secret = os.getenv("OID_CLIENT_SECRET"),
+    client_secret = oid_secret,
     token_endpoint_auth_method = os.getenv("OIDC_AUTH_METHOD") or "client_secret_basic",
     renew_access_token_on_expiry = os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY") ~= "false",
     scope = os.getenv("OIDC_AUTH_SCOPE") or "openid",
