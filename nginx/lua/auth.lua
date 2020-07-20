@@ -4,7 +4,8 @@ local opts = {
     client_id = os.getenv("OID_CLIENT_ID"),
     client_secret = os.getenv("OID_CLIENT_SECRET"),
     token_endpoint_auth_method = os.getenv("OIDC_AUTH_METHOD") or "client_secret_basic",
-    renew_access_token_on_expiry = os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY") ~= "false",
+    -- Backwards compatible with typo 'OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY'
+    renew_access_token_on_expiry = os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIRY") ~= "false" and os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY") ~= "false",
     scope = os.getenv("OIDC_AUTH_SCOPE") or "openid",
     iat_slack = 600,
 }
