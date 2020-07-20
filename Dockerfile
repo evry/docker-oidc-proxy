@@ -28,4 +28,10 @@ RUN \
 COPY bootstrap.sh /usr/local/openresty/bootstrap.sh
 COPY nginx /usr/local/openresty/nginx/
 
+# Create run user
+RUN addgroup -S www && adduser -S www -G www -u 1000 -D
+RUN chown -R www:www /usr/local/openresty/
+USER www
+
+ENV UPSTREAM_PORT=8080
 ENTRYPOINT ["/usr/local/openresty/bootstrap.sh"]
