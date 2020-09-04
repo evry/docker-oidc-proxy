@@ -27,7 +27,7 @@ if [ -n "${NAMESERVER}" ]; then
   echo "Nameserver is: ${NAMESERVER}"
 
   echo "Patching nginx config"
-  sed -i "s/resolver.*/resolver ${NAMESERVER};/" "${NGX_CONF}"
+  sed -i "s/resolver.*/resolver ${NAMESERVER} ipv6=off;/" "${NGX_CONF}"
 fi
 
 echo "Using nginx config:"
