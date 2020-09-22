@@ -1,8 +1,8 @@
 local opts = {
-    redirect_uri_path = os.getenv("OID_REDIRECT_PATH") or "/redirect_uri",
+    redirect_uri = os.getenv("OID_REDIRECT_PATH") or "/redirect_uri", --redirect_uri_path has been deprecated
     discovery = os.getenv("OID_DISCOVERY"),
     client_id = os.getenv("OID_CLIENT_ID"),
-    client_secret = os.getenv("OID_CLIENT_SECRET"),
+    --client_secret = os.getenv("OID_CLIENT_SECRET"), has been deprecated 
     token_endpoint_auth_method = os.getenv("OIDC_AUTH_METHOD") or "client_secret_basic",
     -- Backwards compatible with typo 'OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY'
     renew_access_token_on_expiry = os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIRY") ~= "false" and os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY") ~= "false",
