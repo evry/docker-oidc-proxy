@@ -1,10 +1,9 @@
-FROM openresty/openresty:1.13.6.2-alpine
-MAINTAINER Hans Kristian Flaatten <hans.flaatten@evry.com>
+FROM openresty/openresty:1.17.8.2-5-alpine
 
 ENV \
  SESSION_VERSION=2.22 \
  HTTP_VERSION=0.12 \
- OPENIDC_VERSION=1.6.1 \
+ OPENIDC_VERSION=1.7.0 \
  JWT_VERSION=0.2.0 \
  HMAC_VERSION=989f601acbe74dee71c1a48f3e140a427f2d03ae
 
