@@ -35,6 +35,7 @@ environment variables is used in this image:
 * `PROXY_PROTOCOL`: Protocol to the service to proxy (`http` or `https`)
 
 * `ADD_HOST_HEADER`: pass the proxy host header downstream (`true` or `false`)
+* `UPSTREAM_PORT`: port on which docker-oidc-proxy listens (defaults to `8080`)
 
 ```
 docker run \
