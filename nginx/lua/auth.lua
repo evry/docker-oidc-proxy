@@ -8,6 +8,7 @@ local opts = {
     renew_access_token_on_expiry = os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIRY") ~= "false" and os.getenv("OIDC_RENEW_ACCESS_TOKEN_ON_EXPIERY") ~= "false",
     scope = os.getenv("OIDC_AUTH_SCOPE") or "openid",
     iat_slack = 600,
+    use_pkce = os.getenv("OID_USE_PKCE") == "true"
 }
 
 -- call authenticate for OpenID Connect user authentication
@@ -22,6 +23,7 @@ ngx.log(ngx.INFO,
   ", session.data.authenticated=", session.data.authenticated,
   ", opts.force_reauthorize=", opts.force_reauthorize,
   ", opts.renew_access_token_on_expiry=", opts.renew_access_token_on_expiry,
+  ", opts.use_pkce=", opts.use_pkce,
   ", try_to_renew=", try_to_renew,
   ", token_expired=", token_expired
 )

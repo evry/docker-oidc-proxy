@@ -28,6 +28,7 @@ services:
       - OID_DISCOVERY=http://192.168.99.100:8080/auth/realms/master/.well-known/openid-configuration
       - OID_CLIENT_ID=proxy
       - OID_CLIENT_SECRET=dee59d02-b1a9-455a-bd3c-38d2e060bf0f
+      - OID_USE_PKCE=true
 
       - PROXY_HOST=192.168.99.100
       - PROXY_PORT=8383

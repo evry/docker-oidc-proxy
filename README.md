@@ -26,6 +26,7 @@ environment variables is used in this image:
 * `OID_DISCOVERY`: OpenID provider well-known discovery URL
 * `OID_CLIENT_ID`: OpenID Client ID
 * `OID_CLIENT_SECRET`: OpenID Client Secret
+* `OID_USE_PKCE`: Enable PKCE (`true` or `false`, default is `false`)
 * `OIDC_AUTH_METHOD`: OpenID Connect authentication method (`client_secret_basic` or `client_secret_post`)
 * `OIDC_RENEW_ACCESS_TOKEN_ON_EXPIRY`: Enable silent renew of access token (`true` or `false`)
 
