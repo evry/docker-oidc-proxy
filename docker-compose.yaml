@@ -20,15 +20,13 @@ services:
     volumes:
       - ./bootstrap.sh:/usr/local/openresty/bootstrap.sh
     environment:
-      - OID_SESSION_SECRET=623q4hR325t36VsCD3g567922IC0073T
-      - OID_SESSION_CHECK_SSI=off
-      - OID_SESSION_NAME=oidc_auth
-
-      - OID_REDIRECT_PATH=/redirect_uri
-      - OID_DISCOVERY=http://192.168.99.100:8080/auth/realms/master/.well-known/openid-configuration
-      - OID_CLIENT_ID=proxy
-      - OID_CLIENT_SECRET=dee59d02-b1a9-455a-bd3c-38d2e060bf0f
-      - OID_USE_PKCE=true
+      - OIDC_SESSION_SECRET=623q4hR325t36VsCD3g567922IC0073T
+      - OIDC_SESSION_CHECK_SSI=off
+      - OIDC_SESSION_NAME=oidc_auth
+      - OIDC_REDIRECT_PATH=/redirect_uri
+      - OIDC_DISCOVERY_URL=http://192.168.99.100:8080/auth/realms/master/.well-known/openid-configuration
+      - OIDC_CLIENT_ID=proxy
+      - OIDC_CLIENT_SECRET=dee59d02-b1a9-455a-bd3c-38d2e060bf0f
 
       - PROXY_HOST=192.168.99.100
       - PROXY_PORT=8383

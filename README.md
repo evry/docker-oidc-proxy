@@ -18,15 +18,14 @@ This proxy is controlled through environment variables, so there is no need to
 mess with any configuration files unless you want to of course. The following
 environment variables is used in this image:
 
-* `OID_SESSION_SECRET`: secret value for cookie sessions
-* `OID_SESSION_CHECK_SSI`: check SSI or not (`on` or `off`)
-* `OID_SESSION_NAME`: cookie session name
+* `OIDC_SESSION_SECRET`: secret value for cookie sessions
+* `OIDC_SESSION_CHECK_SSI`: check SSI or not (`on` or `off`)
+* `OIDC_SESSION_NAME`: cookie session name
 
-* `OID_REDIRECT_PATH`: Redirect path after authentication
-* `OID_DISCOVERY`: OpenID provider well-known discovery URL
-* `OID_CLIENT_ID`: OpenID Client ID
-* `OID_CLIENT_SECRET`: OpenID Client Secret
-* `OID_USE_PKCE`: Enable PKCE (`true` or `false`, default is `false`)
+* `OIDC_REDIRECT_PATH`: Redirect path after authentication
+* `OIDC_DISCOVERY_URL`: OpenID provider well-known discovery URL
+* `OIDC_CLIENT_ID`: OpenID Client ID
+* `OIDC_CLIENT_SECRET`: OpenID Client Secret
 * `OIDC_AUTH_METHOD`: OpenID Connect authentication method (`client_secret_basic` or `client_secret_post`)
 * `OIDC_RENEW_ACCESS_TOKEN_ON_EXPIRY`: Enable silent renew of access token (`true` or `false`)
 
@@ -38,9 +37,9 @@ environment variables is used in this image:
 
 ```
 docker run \
-  -e OID_DISCOVERY=https://my-auth-server/auth \
-  -e OID_CLIENT_ID=my-client \
-  -e OID_CLIENT_SECRET=my-secret \
+  -e OIDC_DISCOVERY_URL=https://my-auth-server/auth \
+  -e OIDC_CLIENT_ID=my-client \
+  -e OIDC_CLIENT_SECRET=my-secret \
   -e PROXY_HOST=my-service \
   -e PROXY_PORT=80 \
   -e PROXY_PROTOCOL=http \
